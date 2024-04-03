@@ -25,6 +25,15 @@ jobs:
       BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
 
     steps:
+      - name: 'BrowserStack Env Setup'
+        uses: 'browserstack/github-actions/setup-env@master'
+        with:
+          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+          build-name: 'TEST-BUILD'
+          project-name: 'TESTREPO'
+
+
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.commit_sha }}
