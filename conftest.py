@@ -16,6 +16,11 @@ class ColorFormatter(logging.Formatter):
     # logging.CRITICAL: GREEN + '%(message)s' + RESET
   }
 
+  def format(self, record):
+    log_fmt = self.FORMATS.get(record.levelno)
+    formatter = logging.Formatter(log_fmt)
+    return formatter.format(record)
+
 @pytest.fixture(scope='session', autouse=True)
 def setup_logging():
     root_logger = logging.getLogger()
