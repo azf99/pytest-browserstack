@@ -29,17 +29,17 @@ def setup_logging():
     console_handler.setFormatter(ColorFormatter())
     root_logger.addHandler(console_handler)
 
-number_of_scenarios = []
+# number_of_scenarios = []
 
-@pytest.hookimpl
-def pytest_bdd_before_scenario(scenario):
-    number_of_scenarios.append(scenario.name)
-    logging.info(f"[Scenario Name]: {scenario.name}")
+# @pytest.hookimpl
+# def pytest_bdd_before_scenario(scenario):
+#     number_of_scenarios.append(scenario.name)
+#     logging.info(f"[Scenario Name]: {scenario.name}")
 
-@pytest.hookimpl
-def pytest_bdd_after_scenario(scenario):
-    logging.info(f"[Executed Scenarios]: {scenario.name}")
+# @pytest.hookimpl
+# def pytest_bdd_after_scenario(scenario):
+#     logging.info(f"[Executed Scenarios]: {scenario.name}")
 
-@pytest.hookimpl
-def pytest_bdd_before_step(step):
-    logging.info(f"[Step Name]: {step.name}")
+# @pytest.hookimpl
+# def pytest_bdd_before_step(step):
+#     logging.info(f"[Step Name]: {step.name}")
